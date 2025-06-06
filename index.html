@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-inter">
+    <div class="weather-dashboard">
+        <div class="col-span-full flex flex-col sm:flex-row items-center gap-3 mb-4">
+            <div class="flex-grow text-gray-600 font-medium">Your city</div>
+            <div class="flex-grow w-full">
+                <input type="text" id="city-input" placeholder="London" class="w-full">
+            </div>
+            <button id="search-button" class="mt-2 sm:mt-0">Get Weather</button>
+        </div>
+
+        <div class="current-weather-details flex-grow">
+            <p id="current-datetime" class="text-sm text-gray-500"></p>
+
+            <div class="flex items-center justify-between mt-4">
+                <div class="flex items-center gap-4">
+                    <img id="current-weather-icon" src="https://openweathermap.org/img/wn/02d@2x.png" alt="Weather Icon" class="w-24 h-24">
+                    <div>
+                        <p id="current-temperature" class="text-6xl font-extrabold text-blue-700 font-montserrat">72°F</p>
+                        <p id="current-description" class="text-xl capitalize text-gray-700">Cloudy</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="temp-toggle">
+                        <span class="slider round"></span>
+                        <span class="toggle-label left">°F</span>
+                        <span class="toggle-label right">°C</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="temperature-graph-placeholder">
+                <div class="dot"></div>
+                <span class="temp-label">72°F</span>
+            </div>
+
+            <div class="flex justify-around text-lg mt-6 text-gray-600">
+                <p>Humidity <span id="current-humidity" class="font-semibold text-xl">45%</span></p>
+                <p>Wind speed <span id="current-wind-speed" class="font-semibold text-xl">19.2 km/j</span></p>
+            </div>
+        </div>
+
+        <div class="forecast-container">
+            <h3 class="text-xl font-bold mb-2 text-gray-700">Next 5 Days</h3>
+            <div id="forecast-cards-grid" class="grid grid-cols-2 gap-4">
+                <div class="forecast-card">
+                    <p class="font-semibold text-gray-700">Today</p>
+                    <img src="https://openweathermap.org/img/wn/02d@2x.png" alt="Weather Icon" class="w-16 h-16">
+                    <p class="text-sm text-gray-600">Humidity</p>
+                    <p class="font-bold text-lg text-blue-600">30%</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="font-semibold text-gray-700">Nov 24</p>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" class="w-16 h-16">
+                    <p class="text-sm text-gray-600">Humidity</p>
+                    <p class="font-bold text-lg text-blue-600">36%</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="font-semibold text-gray-700">Nov 25</p>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" class="w-16 h-16">
+                    <p class="text-sm text-gray-600">Humidity</p>
+                    <p class="font-bold text-lg text-blue-600">20%</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="font-semibold text-gray-700">Nov 26</p>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" class="w-16 h-16">
+                    <p class="text-sm text-gray-600">Humidity</p>
+                    <p class="font-bold text-lg text-blue-600">15%</p>
+                </div>
+                <div class="forecast-card">
+                    <p class="font-semibold text-gray-700">Nov 27</p>
+                    <img src="https://openweathermap.org/img/wn/01d@2x.png" alt="Weather Icon" class="w-16 h-16">
+                    <p class="text-sm text-gray-600">Humidity</p>
+                    <p class="font-bold text-lg text-blue-600">25%</p>
+                </div>
+            </div>
+        </div>
+
+        <p id="error-message" class="text-red-500 text-center hidden col-span-full"></p>
+        <div id="loading-indicator" class="hidden mx-auto col-span-full"></div>
+    </div>
+    <script src="script.js" defer></script>
+</body>
+</html>
